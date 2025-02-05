@@ -13,7 +13,7 @@
 | **Orchestration**  | Azure Data Factory (ADF)                   |
 | **Analysis**       | Power BI                                   |
 
-![Azure Data Architecture Diagram:](diagram.PNG)
+
 
 ## 📂 **Pipeline Architecture**  
 ![Architecture Diagram](pipelines/screenshots/adf_pipeline.png)  
