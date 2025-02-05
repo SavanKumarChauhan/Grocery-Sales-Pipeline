@@ -11,9 +11,10 @@
 | **Data Ingestion** | Azure Data Lake Storage (ADLS) Gen2        |
 | **Transformation** | PySpark (Azure Databricks)                 |
 | **Orchestration**  | Azure Data Factory (ADF)                   |
-| **Analysis**       | Power BI                                   |
+| **Analysis**       | Synapse                                    |
 
-
+**Azure Architecture Diagram**
+!(screenshots/diagram.PNG)
 
 ## 📂 **Pipeline Architecture**  
 ![Architecture Diagram](pipelines/screenshots/adf_pipeline.png)  
