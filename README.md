@@ -17,8 +17,7 @@
 !(screenshots/diagram.PNG)
 
 ## 📂 **Pipeline Architecture**  
-![Architecture Diagram](pipelines/screenshots/adf_pipeline.png)  
-*Screenshot of your Azure Data Factory pipeline*  
+
 
 1. **Ingestion**:  
    - Raw CSV files (sales, stores, items) stored in ADLS Gen2.  
