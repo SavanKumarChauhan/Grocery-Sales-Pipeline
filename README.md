@@ -13,8 +13,8 @@
 | **Orchestration**  | Azure Data Factory (ADF)                   |
 | **Analysis**       | Synapse                                    |
 
-**Azure Architecture Diagram**
-![(screenshots/diagram.PNG)]
+
+![**Azure Architecture Diagram**](screenshots/diagram.PNG)
 
 ## 📂 **Pipeline Architecture**  
 
