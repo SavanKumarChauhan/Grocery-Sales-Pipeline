@@ -14,7 +14,7 @@
 | **Analysis**       | Synapse                                    |
 
 **Azure Architecture Diagram**
-!(screenshots/diagram.PNG)
+![(screenshots/diagram.PNG)]
 
 ## 📂 **Pipeline Architecture**  
 
