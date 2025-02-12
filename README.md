@@ -29,14 +29,56 @@ The raw dataset used in this project is available here:
 🔹 You can download them directly from this repository without needing a Kaggle account.  
 
 
+## 🚀 Data Ingestion Process
+
+To ensure a **fully automated and dynamic data ingestion pipeline**, this project leverages **Azure Data Factory (ADF), Azure SQL Database, and Azure Data Lake Storage Gen2 (ADLS Gen2)**. The ingestion pipeline is designed to handle **multiple data sources dynamically** using **parameters**, making it flexible and scalable.
+
+### 🔹 Pipeline Design
+![**Ingestion Pipeline**](screenshots/PL_ingestion.PNG)
+
+1️⃣ **Metadata-Driven Ingestion**  
+   - The paths for all **data sources** are stored in an **Azure SQL Database** table.  
+   - This table contains a **Path column**, which holds the source location of each dataset.  
+   - The ingestion process dynamically retrieves these paths and processes the data accordingly.
+
+2️⃣ **Lookup & Iteration**  
+   - The pipeline starts with a **Lookup Activity (metaDataLookup)** that retrieves the source paths from Azure SQL Database.  
+   - A **ForEach Activity (ForEachFile)** iterates through each retrieved path.
+
+3️⃣ **Dynamic Source Selection**  
+   - Inside the `ForEach` loop, a **Switch Activity (SwitchSourceType)** dynamically selects the appropriate source type.  
+   - This allows the pipeline to handle **multiple source types without hardcoding paths**.
+
+4️⃣ **Data Movement & Storage**  
+   - Based on the source type, the **Copy Activity (CopySqlSrv)** moves the data to **Azure Data Lake Storage Gen2 (ADLS Gen2)**.  
+   - The pipeline supports **multiple data sources**, including:  
+     ✔ **Azure File Share**  
+     ✔ **Azure Blob Storage**  
+     ✔ **On-Premises SQL Server**  
+
+### 📸 Pipeline Workflow  
+<!-- Replace 'pipeline_image.png' with the actual filename of your uploaded image -->
+![Data Ingestion Pipeline](pipeline_image.png)
+
+### ✅ Key Benefits of This Approach  
+✔ **Automated & Scalable** → No manual intervention needed; new sources can be added dynamically.  
+✔ **Metadata-Driven** → Azure SQL Database controls the ingestion process.  
+✔ **Multi-Source Support** → Handles data from different sources seamlessly.  
+✔ **Optimized for Cloud Storage** → Stores all ingested data in **ADLS Gen2** for further processing.  
+
+This **ingestion pipeline** serves as the **foundation** for the data engineering workflow, ensuring a **robust, scalable, and flexible** solution for managing diverse data sources. 🚀  
 
 
 
-## 📂 **Pipeline Architecture**  
 
 
-1. **Ingestion**:  
-   - Raw CSV files (sales, stores, items) stored in ADLS Gen2.  
+  
+
+
+
+
+
+  
 2. **Transformation**:  
    - PySpark code in Databricks cleans and aggregates data (e.g., filtering nulls, joining tables).  
 3. **Orchestration**:  
