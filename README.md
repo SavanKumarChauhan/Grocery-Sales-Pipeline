@@ -67,6 +67,47 @@ This **ingestion pipeline** serves as the **foundation** for the data engineerin
 (Note: All the images are provided in the **screenshots** folder.)
 
 
+## 🚀 Data Transformation Process
+
+Once the raw data is ingested into **Azure Data Lake Storage Gen2 (ADLS Gen2)**, the transformation process is executed in **Azure Databricks** using **PySpark**. This ensures the data is **cleaned, enriched, and structured** for efficient querying and analysis.
+
+### 🔹 Key Transformation Steps
+
+1️⃣ **Reading Data Dynamically**
+   - The transformation process dynamically **reads data** from ADLS Gen2 based on **file name parameters**.
+   - The storage account and container names are securely retrieved using **Azure Key Vault** secrets.
+
+2️⃣ **Handling Missing Values**
+   - Missing values in any column are replaced with `0` to maintain **data integrity**.
+
+3️⃣ **Removing Duplicates**
+   - The pipeline identifies **duplicate rows** across all columns and removes them.
+   - The data is then sorted by **date** and **store number** to ensure proper sequencing.
+
+4️⃣ **Feature Engineering & Standardization**
+   - **Item Data**:
+     - Converts **"perishable"** column to **Yes/No** values.
+     - Standardizes **"family"** column by converting text to lowercase.
+   - **Holiday Events Data**:
+     - Standardizes the **"type"** column to lowercase.
+     - Adds new columns:  
+       ✔ **"transferred_holiday"** (Yes/No)  
+       ✔ **"day_of_week"** (Extracted from date)  
+       ✔ **"is_weekend"** (Yes/No based on day)  
+   - **Oil Prices Data**:
+     - Renames **"dcoilwtico"** to **"daily_wti_oil_price"** for better clarity.
+   - **Store Data**:
+     - Standardizes **"city"** and **"state"** to lowercase.
+     - Creates a **new store category** based on the store type (Large, Medium, Small, Specialty).
+   - **Transactions Data**:
+     - Extracts **day of the week** from transaction dates.
+
+5️⃣ **Writing Transformed Data**
+   - The final transformed datasets are written to **ADLS Gen2 Silver Layer** in **Parquet format** for optimized performance.
+
+--- You can view the full transformation script here:![](transformation/grocery_transformation.py)
+
+
 
 
 
@@ -77,8 +118,7 @@ This **ingestion pipeline** serves as the **foundation** for the data engineerin
 
 
   
-2. **Transformation**:  
-   - PySpark code in Databricks cleans and aggregates data (e.g., filtering nulls, joining tables).  
+
 3. **Orchestration**:  
    - ADF pipelines automate data movement from ADLS to Databricks.  
 4. **Analysis**:  
