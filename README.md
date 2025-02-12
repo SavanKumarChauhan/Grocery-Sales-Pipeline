@@ -19,6 +19,17 @@
 **Azure Architecture Diagram**
 ![**Azure Architecture Diagram**](screenshots/diagram.PNG)
 
+## 📊 Dataset Source  
+The raw dataset used in this project is available here:  
+
+📂 [**Raw Data Files**](data/raw_data)  
+
+🔹 Above folder contains the original CSV files sourced from [Kaggle](https://www.kaggle.com/datasets/ruiyuanfan/corporacin-favorita-grocery-sales-forecasting).  
+🔹 These files include **sales transactions, store information, item details, holiday events, and oil price data**.  
+🔹 You can download them directly from this repository without needing a Kaggle account.  
+
+
+
 
 
 ## 📂 **Pipeline Architecture**  
