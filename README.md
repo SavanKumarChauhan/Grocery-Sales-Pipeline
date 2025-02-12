@@ -105,7 +105,10 @@ Once the raw data is ingested into **Azure Data Lake Storage Gen2 (ADLS Gen2)**,
 5️⃣ **Writing Transformed Data**
    - The final transformed datasets are written to **ADLS Gen2 Silver Layer** in **Parquet format** for optimized performance.
 
---- You can view the full transformation script here:![](transformation/grocery_transformation.py)
+## 🔗 Full PySpark Code  
+📂 You can view the **full transformation script** here:  
+👉 [View Full PySpark Code](https://github.com/SavanKumarChauhan/Grocery-Sales-Pipeline/blob/main/transformation/grocery_transformation.py)
+
 
 
 
