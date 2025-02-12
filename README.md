@@ -50,15 +50,12 @@ To ensure a **fully automated and dynamic data ingestion pipeline**, this projec
    - This allows the pipeline to handle **multiple source types without hardcoding paths**.
 
 4️⃣ **Data Movement & Storage**  
-   - Based on the source type, the **Copy Activity (CopySqlSrv)** moves the data to **Azure Data Lake Storage Gen2 (ADLS Gen2)**.  
+   - Based on the source type, the **Copy Activity** moves the data to **Azure Data Lake Storage Gen2 (ADLS Gen2)**.  
    - The pipeline supports **multiple data sources**, including:  
      ✔ **Azure File Share**  
      ✔ **Azure Blob Storage**  
      ✔ **On-Premises SQL Server**  
 
-### 📸 Pipeline Workflow  
-<!-- Replace 'pipeline_image.png' with the actual filename of your uploaded image -->
-![Data Ingestion Pipeline](pipeline_image.png)
 
 ### ✅ Key Benefits of This Approach  
 ✔ **Automated & Scalable** → No manual intervention needed; new sources can be added dynamically.  
@@ -66,7 +63,8 @@ To ensure a **fully automated and dynamic data ingestion pipeline**, this projec
 ✔ **Multi-Source Support** → Handles data from different sources seamlessly.  
 ✔ **Optimized for Cloud Storage** → Stores all ingested data in **ADLS Gen2** for further processing.  
 
-This **ingestion pipeline** serves as the **foundation** for the data engineering workflow, ensuring a **robust, scalable, and flexible** solution for managing diverse data sources. 🚀  
+This **ingestion pipeline** serves as the **foundation** for the data engineering workflow, ensuring a **robust, scalable, and flexible** solution for managing diverse data sources. 🚀
+(Note: All the images are provided in the **screenshots** folder.)
 
 
 
