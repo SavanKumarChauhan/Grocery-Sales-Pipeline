@@ -37,8 +37,8 @@ To ensure a **fully automated and dynamic data ingestion pipeline**, this projec
 ![**Ingestion Pipeline**](screenshots/PL_ingestion.PNG)
 
 1️⃣ **Metadata-Driven Ingestion**  
-   - The paths for all **data sources** are stored in an **Azure SQL Database** table.  
-   - This table contains a **Path column**, which holds the source location of each dataset.  
+   - The paths for all **data sources** are stored in an **Azure SQL Database** table. (screenshots/metadataTable_sql.PNG) 
+   - This table contains a **Path column**, which holds the source location of each dataset. (screenshots/metadataTable.PNG) 
    - The ingestion process dynamically retrieves these paths and processes the data accordingly.
 
 2️⃣ **Lookup & Iteration**  
