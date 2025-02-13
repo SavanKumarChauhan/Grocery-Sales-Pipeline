@@ -1,9 +1,19 @@
 # Corporación Favorita Grocery Sales Data Pipeline  
 **End-to-End Data Engineering Project with Azure**  
 
-**Overview:**
-   An end-to-end data pipeline leveraging Azure Data Lake Storage (ADLS Gen2), Azure Databricks (PySpark), and Azure Data Factory (ADF) to ingest, transform, and analyze grocery sales data, with a Power BI 
-   dashboard for actionable business insights.
+ ## 🚀 Overview  
+
+This project showcases an **end-to-end data engineering pipeline** using **Azure services**, designed to efficiently **ingest, transform, and store** grocery sales data for analytics and reporting. The pipeline follows a **structured, metadata-driven approach** for automation and scalability.  
+
+### 🔹 **Key Components of the Pipeline**  
+
+✔ **Azure Data Lake Storage Gen2 (ADLS Gen2)** → Centralized storage for raw and processed data.  
+✔ **Azure Data Factory (ADF)** → Automates data ingestion from multiple sources into ADLS Gen2.  
+✔ **Azure Databricks (PySpark)** → Cleanses, transforms, and enriches data using distributed computing.  
+✔ **Azure Synapse Pipelines** → Loads transformed data into **Synapse Dedicated SQL Pool** for warehousing.  
+
+The final processed data is stored in **Synapse SQL Pool**, making it ready for **further analysis and business intelligence applications**. This solution is **scalable, fully automated, and optimized for large datasets**. 🚀  
+
 
 ## 🛠️ **Tools & Technologies**  
 | **Stage**         | **Tools**                                  |
