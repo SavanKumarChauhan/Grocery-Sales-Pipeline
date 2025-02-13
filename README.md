@@ -156,39 +156,45 @@ The pipeline consists of multiple steps to **ingest, transform, and move data** 
 🚀 **This orchestration pipeline ensures a robust data engineering workflow, enabling large-scale analytics with minimal operational overhead.**  
 
 
+## 🚀 Data Warehousing with Azure Synapse Analytics  
 
-
-
-
-  
-
-
-
-
-
-  
-
- 
-4. **Analysis**:  
-   - Mock Power BI dashboard created locally due to Azure account restrictions.  
-
-💡 **Tip**: Replace `adf_pipeline.png` with your actual screenshot filename. Add a 1-2 line description for each stage.
+To enable **efficient querying and reporting**, the transformed data from **Azure Data Lake Storage (Silver Layer)** is loaded into **Azure Synapse Analytics** using **Synapse Pipelines**. This step ensures data is structured and optimized for analytics.  
 
 ---
 
-## 🔍 **Key Screenshots & Code Snippets**  
+### 🔹 Data Loading Process  
 
-### 1. **ADLS Gen2 Configuration**  
-![ADLS Folders](pipelines/screenshots/adls_config.png)  
-*Raw and transformed data folders in Azure Data Lake Storage.*  
+1️⃣ **Source: ADLS Gen2 (Silver Layer)**  
+   - The cleaned data is stored in **Parquet format** in ADLS Gen2.  
+   - The file paths and table mappings are **parameterized** for dynamic ingestion.  
 
-### 2. **PySpark Transformation Code**  
-```python  
-# Load raw transactions data from ADLS Gen2 (example)
-transactions_df = spark.read.csv("adls://raw/transactions.csv")
+2️⃣ **Data Ingestion using Synapse Pipelines**  
+   - A **Synapse Pipeline (`PL_copydataToPool`)** moves data from ADLS Gen2 into **Synapse Dedicated SQL Pool**.  
+   - The **ForEach loop** dynamically processes multiple datasets.  
 
-# Clean data: Remove nulls and filter valid sales
-clean_df = transactions_df.dropna().filter("sales_amount > 0")
+3️⃣ **Optimized Loading with PolyBase**  
+   - The **Copy Data activity** reads **Parquet files** and maps them to **Synapse SQL tables**.  
+   - **PolyBase** is used for efficient **bulk loading** into the warehouse.  
 
-# Write transformed data to ADLS Gen2 in Parquet format
-clean_df.write.parquet("adls://transformed/clean_transactions.parquet")
+4️⃣ **Final Storage in Synapse SQL Pool**  
+   - The transformed data is stored in **structured tables**, ready for querying via **T-SQL, Synapse Studio, and Power BI**.  
+
+---
+
+### 📸 Pipeline Workflow  
+
+![Synapse Pipeline](screenshots/de_synapsePL.PNG)
+![Synapse Pipeline](screenshots/de_synapsePL01.PNG)
+
+---
+
+### ✅ **Final Project Summary**  
+
+✔ **End-to-End Data Engineering** → From ingestion to analytics using **Azure Data Platform**.  
+✔ **Scalable & Automated Pipelines** → Dynamic data movement with **Databricks & Synapse Pipelines**.  
+✔ **Optimized for BI & Reporting** → Data stored in **Synapse SQL Pool**, ready for **Power BI dashboards**.  
+
+🚀 **This data pipeline provides a robust foundation for enterprise analytics, supporting scalable and real-time insights.**  
+
+---
+
